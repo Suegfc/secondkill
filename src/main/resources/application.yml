@@ -1,0 +1,35 @@
+#开发配置
+spring:
+  #数据源配置
+  datasource:
+    #    schema:
+    #      - classpath:sql/department.sql
+    #      - classpath:sql/employee.sql
+    #    spring2.0后要加上这个配置schema才生效,表示始终执行初始化
+    url: jdbc:mysql://localhost:3306/secondkill?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 298560
+      # 使用druid数据源
+      driver-class-name: com.mysql.jdbc.Driver
+
+#公共配置与profiles选择无关
+mybatis:
+  typeAliasesPackage: cn.sueyun.pojo
+  mapperLocations: classpath:mapper/*.xml
+
+#pagehelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+thymeleaf:
+  cache: false
+  content-type: text/html
+  enabled: true
+  encoding: UTF-8
+  mode: HTML5
+  prefix: classpath:/templates/
+  suffix: .html
+
